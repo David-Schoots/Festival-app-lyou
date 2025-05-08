@@ -1,15 +1,16 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import Startup from "./Startup";
+import Home from "./Home";
 function App() {
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <img src="/logo.png" alt="" /> {/* Logo */}
-      {/* text under the logo */}
-      <h1 className="text-3xl font-bold text-center mt-3">Festival App</h1>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Startup />} />
+        <Route path="/home" element={<Home />} />
+      </Routes>
+    </Router>
   );
 }
 
