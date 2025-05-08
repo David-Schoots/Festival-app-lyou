@@ -5,8 +5,10 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="flex justiy-center items-center h-screen">
-      <img src="/icon-512x512.png" alt="" /> {/* Logo */}
+    <div className="flex flex-col items-center justify-center h-screen">
+      <img src="/logo.png" alt="" /> {/* Logo */}
+      {/* text under the logo */}
+      <h1 className="text-3xl font-bold text-center mt-3">Festival App</h1>
     </div>
   );
 }
