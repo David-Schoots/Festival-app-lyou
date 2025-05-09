@@ -11,9 +11,7 @@ function Home() {
         duration: 1,
       }}
     >
-      <div className="flex flex-col items-center text-center justify-center h-screen">
-        <h1 className="text-4xl font-bold">Welkom op de hoi!</h1>
-      </div>
+     {/* searchbar */}
     </motion.div>
   );
 }
