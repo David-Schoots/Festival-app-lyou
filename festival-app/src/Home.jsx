@@ -18,19 +18,7 @@ function Home() {
         duration: 1,
       }}
     >
-      {/* Search bar for searching artist */}
-      <div className="flex items-center justify-center mt-4 mb-6">
-        <div className="relative w-8/12">
-          <span className="absolute left-4 top-1/2 transform -translate-y-1/2">
-            <CiSearch className="text-gray-500" />
-          </span>
-          <input
-            type="text"
-            placeholder="Search an artist..."
-            className="p-4 pl-12 border border-gray-300 rounded-4xl shadow-md w-full"
-          />
-        </div>
-      </div>
+      {/* Intro text  */}
 
       <h2 className="text-4xl text-[#247BA0] font-bold mt-12 ml-8 mb-8">
         Festival Stages
