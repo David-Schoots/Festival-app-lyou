@@ -1,10 +1,11 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Startup from "./Startup";
-import Home from "./Home";
-import Header from "./Header";
-import Footer from "./Footer";
+import Startup from "./pages/Startup";
+import Home from "./pages/Home";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Info from "./pages/Info";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Startup />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/pages/Info" element={<Info />} />
       </Routes>
       <Footer />
     </Router>

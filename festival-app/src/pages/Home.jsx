@@ -18,8 +18,6 @@ function Home() {
         duration: 1,
       }}
     >
-      {/* Intro text  */}
-
       <h2 className="text-4xl text-[#247BA0] font-bold mt-12 ml-8 mb-8">
         Festival Stages
       </h2>
