@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
-.swiper {
-  margin-right: 0;
+@font-face {
+  font-family: "roboto";
+  src: url("/src/assets/fonts/Roboto-VariableFont_wdth,wght.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
 }

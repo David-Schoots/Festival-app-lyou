@@ -38,4 +38,10 @@ export default defineConfig({
       },
     }),
   ],
+  extend: {
+    fontFamily: {
+      custom: ["roboto", "sans-serif"],
+    },
+  },
+  content: ["./node_modules/@material-tailwind/react/**/*.{js,ts,jsx,tsx}"],
 });
