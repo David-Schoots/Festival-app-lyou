@@ -26,39 +26,39 @@ export default function Footer() {
 
       {/* Location Icon */}
       <Link
-        to="/location"
+        to="/pages/location"
         className={`flex flex-col items-center ${
-          isActive("/location") ? "text-red-500" : "text-gray-500"
+          isActive("/pages/location") ? "text-red-500" : "text-gray-500"
         }`}
       >
         <GoLocation className="text-3xl" />
-        {isActive("/location") && (
+        {isActive("/pages/location") && (
           <div className="w-6 h-1 bg-red-600 mt-1 rounded-full"></div>
         )}
       </Link>
 
       {/* Music Icon */}
       <Link
-        to="/music"
+        to="/pages/music"
         className={`flex flex-col items-center ${
-          isActive("/music") ? "text-red-500" : "text-gray-500"
+          isActive("/pages/music") ? "text-red-500" : "text-gray-500"
         }`}
       >
         <IoMdMusicalNote className="text-3xl" />
-        {isActive("/music") && (
+        {isActive("/pages/music") && (
           <div className="w-6 h-1 bg-red-600 mt-1 rounded-full"></div>
         )}
       </Link>
 
       {/* Info Icon */}
       <Link
-        to="/info"
+        to="/pages/info"
         className={`flex flex-col items-center ${
-          isActive("/info") ? "text-red-500" : "text-gray-500"
+          isActive("/pages/info") ? "text-red-500" : "text-gray-500"
         }`}
       >
         <FiInfo className="text-3xl" />
-        {isActive("/info") && (
+        {isActive("/pages/info") && (
           <div className="w-6 h-1 bg-red-600 mt-1 rounded-full"></div>
         )}
       </Link>
