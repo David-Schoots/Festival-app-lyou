@@ -7,12 +7,12 @@ import { VitePWA } from "vite-plugin-pwa";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    react(), // React plugin voor Vite
+    react(),
     tailwindcss(),
     VitePWA({
-      registerType: "autoUpdate", // automatische update van de service worker
+      registerType: "autoUpdate",
       devOptions: {
-        enabled: true, // Zorg ervoor dat de PWA ook in de development omgeving geactiveerd wordt
+        enabled: true,
       },
       manifest: {
         name: "❤️U Festival",
@@ -38,10 +38,4 @@ export default defineConfig({
       },
     }),
   ],
-  extend: {
-    fontFamily: {
-      custom: ["roboto", "sans-serif"],
-    },
-  },
-  content: ["./node_modules/@material-tailwind/react/**/*.{js,ts,jsx,tsx}"],
 });
