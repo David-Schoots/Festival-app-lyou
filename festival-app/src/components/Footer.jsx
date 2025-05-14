@@ -10,7 +10,7 @@ export default function Footer() {
   const isActive = (path) => location.pathname === path; // Check if the path matches the current route
 
   return (
-    <div className="w-full fixed bottom-0 shadow-md flex justify-around items-center py-4 px-8">
+    <div className="w-full fixed bottom-0 shadow-md flex justify-around items-center py-4 px-8 bg-white">
       {/* Home Icon */}
       <Link
         to="/home"

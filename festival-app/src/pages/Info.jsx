@@ -1,9 +1,137 @@
 export default function Info() {
   return (
-    <div className="ml-8">
-      <h2 className="text-4xl text-[#247BA0] font-bold mt-12  mb-8">
-        Algemeen & contact
-      </h2>
+    <div
+      id="faq"
+      className="w-full  flex flex-col justify-center items-center "
+    >
+      <div className="max-w-screen-xl w-full px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl text-[#247BA0] font-bold mt-12  mb-8">FAQ</h2>
+        </div>
+        <div className="grid divide-y divide-gray-200 max-w-3xl mx-auto">
+          <div className="py-5">
+            <details className="group">
+              <summary className="flex justify-between items-center font-medium text-gray-800 cursor-pointer">
+                <span>Algemeen & contact</span>
+                <span className="transition group-open:rotate-180">
+                  <svg
+                    fill="none"
+                    height="24"
+                    width="24"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+              <p className="text-gray-600 mt-3 group-open:animate-fadeIn">
+                Locatie: Strijkviertel, Utrecht Navigatieadres:
+                Strijkviertelweg, Utrecht,
+                <br />
+                Zaterdag 6 september 2025 - 12:00 tot 23:00 uur
+                <br />
+              </p>
+            </details>
+          </div>
+          <div className="py-5">
+            <details class="group">
+              <summary className="flex justify-between items-center font-medium text-gray-800 cursor-pointer">
+                <span>Bereikbaarheid</span>
+                <span className="transition group-open:rotate-180">
+                  <svg
+                    fill="none"
+                    height="24"
+                    width="24"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+              <p className="text-gray-600 mt-3 font-bold underline group-open:animate-fadeIn">
+                Fiets
+              </p>
+              <p className="text-gray-600 mt-3  group-open:animate-fadeIn">
+                Er is een grote gratis fietsenstalling aanwezig waar je jouw
+                fiets de gehele dag kunt stallen.
+              </p>
+              <p className="text-gray-600 mt-3 underline font-bold group-open:animate-fadeIn">
+                Auto
+              </p>
+              <p className="text-gray-600 mt-3  group-open:animate-fadeIn">
+                Je kunt een parkingticket aanschaffen. Parkeren kan op P+R
+                Papendorp, volg hiervoor de borden 'P online ticket'. Heb je
+                geen ticket van te voren gekocht? Dan kun je bij de
+                parkeerwachter op locatie een parkeerticket aanschaffen (PIN
+                ONLY). Let wel op: VOL=VOL
+              </p>
+              <p className="text-gray-600 mt-3 font-bold  underline group-open:animate-fadeIn">
+                OV
+              </p>
+              <p className="text-gray-600 mt-3 group-open:animate-fadeIn">
+                Kom je met het openbaar vervoer naar Lief? Plan dan je trip via{" "}
+                <a href="https://9292.nl/" className="text-blue-500">
+                  9292.nl
+                </a>
+              </p>
+              <p className="text-gray-600 mt-3 font-bold underline group-open:animate-fadeIn">
+                Shuttlebus
+              </p>
+              <p className="text-gray-600 mt-3 group-open:animate-fadeIn">
+                Vanaf Utrecht Centraal kun je onze gratis shuttlebus richting
+                het festivalterrein pakken. Je vindt deze bus op het centraal
+                station aan de Mineurslaan. Volg de witte bordjes met zwarte
+                pijlen én ' ❤️U Festival'. De bus rijdt tussen 12:00 uur & 19:00
+                uur richting het festival en vanaf 21:00 uur kun je weer
+                instappen om richting het station te gaan.
+              </p>
+              <p className="text-gray-600 mt-3 font-bold underline group-open:animate-fadeIn">
+                Taxi + Kiss & Ride
+              </p>
+              <p className="text-gray-600 mt-3 group-open:animate-fadeIn">
+                Navigeer naar Strijkviertel, De Meern (Utrecht). Volg de borden
+                "Kiss & Ride ❤️U Festival", zodra je in de buurt bent van het
+                festivalterrein.
+              </p>
+            </details>
+          </div>
+          <div className="py-5">
+            <details class="group">
+              <summary className="flex justify-between items-center font-medium text-gray-800 cursor-pointer">
+                <span>Lockers</span>
+                <span className="transition group-open:rotate-180">
+                  <svg
+                    fill="none"
+                    height="24"
+                    width="24"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+              <p className="text-gray-600 mt-3  group-open:animate-fadeIn">
+                Op het festivalterrein zijn kluisjes aanwezig waar je je spullen
+                veilig kunt opbergen! Hier passen 3 à 4 jassen in!
+              </p>
+              <p className="text-gray-600 mt-3  group-open:animate-fadeIn">
+                Goed om te weten: je kunt je kluisje gedurende de hele dag
+                openen en sluiten zo vaak je wilt.
+              </p>
+              <p className="text-gray-600 mt-3 group-open:animate-fadeIn">
+                Het is <span className="font-bold underline">niet</span>{" "}
+                mogelijk om online een kluisje te reserveren. 
+              </p>
+            </details>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
