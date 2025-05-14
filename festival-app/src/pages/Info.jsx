@@ -8,7 +8,7 @@ export default function Info() {
         <div className="text-center mb-12">
           <h2 className="text-4xl text-[#247BA0] font-bold mt-12  mb-8">FAQ</h2>
         </div>
-        <div className="grid divide-y divide-gray-200 max-w-3xl mx-auto">
+        <div className="grid divide-y max-w-3xl mx-auto">
           <div className="py-5">
             <details className="group">
               <summary className="flex justify-between items-center font-medium text-gray-800 cursor-pointer">
@@ -27,11 +27,10 @@ export default function Info() {
                 </span>
               </summary>
               <p className="text-gray-600 mt-3 group-open:animate-fadeIn">
-                Locatie: Strijkviertel, Utrecht Navigatieadres:
-                Strijkviertelweg, Utrecht,
+                Locatie: Strijkviertel, Utrecht <br />
+                Navigatieadres: Strijkviertelweg, Utrecht,
                 <br />
                 Zaterdag 6 september 2025 - 12:00 tot 23:00 uur
-                <br />
               </p>
             </details>
           </div>
@@ -127,6 +126,70 @@ export default function Info() {
               <p className="text-gray-600 mt-3 group-open:animate-fadeIn">
                 Het is <span className="font-bold underline">niet</span>{" "}
                 mogelijk om online een kluisje te reserveren. 
+              </p>
+            </details>
+          </div>
+          <div className="py-5">
+            <details class="group">
+              <summary className="flex justify-between items-center font-medium text-gray-800 cursor-pointer">
+                <span> Ik gebruik medicatie. Wat nu?</span>
+                <span className="transition group-open:rotate-180">
+                  <svg
+                    fill="none"
+                    height="24"
+                    width="24"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+              <p className="text-gray-600 mt-3 group-open:animate-fadeIn">
+                Het is toegestaan om medicijnen mee te nemen in een dosis die je
+                maximaal nodig hebt op 1 dag. Een
+                doktersverklaring/medicatiepaspoort is noodzakelijk.{" "}
+              </p>
+              <p className="text-gray-600 mt-3 group-open:animate-fadeIn">
+                De beveiliging zal jouw documentatie beoordelen en de medicijnen
+                controleren. Het kan zijn dat de EHBO jouw medicijnen
+                (bijvoorbeeld als deze gevaarlijk zijn i.c.m. alcohol) in
+                bewaring neemt en je deze enkel kan innemen bij de EHBO. 
+              </p>
+            </details>
+          </div>
+          <div className="py-5">
+            <details class="group">
+              <summary className="flex justify-between items-center font-medium text-gray-800 cursor-pointer">
+                <span> Mag ik het festivalterrein tussentijds verlaten?</span>
+                <span className="transition group-open:rotate-180">
+                  <svg
+                    fill="none"
+                    height="24"
+                    width="24"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+              <p className="text-gray-600 mt-3 group-open:animate-fadeIn">
+                Nee, helaas is dat niet mogelijk. Om de veiligheid van alle
+                bezoekers te kunnen waarborgen, kunnen we het niet toestaan dat
+                het festivalterrein tussentijds verlaten wordt.
+              </p>
+              <p className="text-gray-600 mt-3 group-open:animate-fadeIn">
+                Wij hebben namelijk geen zicht op hetgeen wat een bezoeker
+                buiten het festivalterrein doet en ik welke staat deze het
+                terrein weer betreedt. Hier kunnen dan ook geen uitzonderingen
+                voor gemaakt worden.
+              </p>
+              <p className="text-gray-600 mt-3 group-open:animate-fadeIn">
+                Wij hebben genoeg loungeplekken, foodstands & barren om het een
+                hele dag uit te kunnen houden.
               </p>
             </details>
           </div>
