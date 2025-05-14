@@ -10,7 +10,7 @@ const bounds = [
 
 export default function Location() {
   return (
-    <div className="ml-8 flex flex-col items-center justify-center">
+    <div className="ml-8 flex flex-col items-center justify-center mb-5">
       <h2 className="text-4xl text-[#247BA0] font-bold mt-12 mb-8">Location</h2>
       <div className="w-full max-w-xs h-[600px] rounded-lg overflow-hidden shadow-lg mb-8">
         <MapContainer

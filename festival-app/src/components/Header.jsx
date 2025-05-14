@@ -16,9 +16,13 @@ function Header() {
 
   useEffect(() => {
     if (theme === "dark") {
-      document.documentElement.classList.add("bg-black", "text-white");
+      document.documentElement.classList.add("bg-black", "text-white", "dark");
     } else {
-      document.documentElement.classList.remove("bg-black", "text-white");
+      document.documentElement.classList.remove(
+        "bg-black",
+        "text-white",
+        "dark"
+      );
     }
   }, [theme]);
 
