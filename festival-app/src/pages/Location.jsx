@@ -1,9 +1,33 @@
+import { MapContainer, ImageOverlay, Marker, Popup } from "react-leaflet";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+import mapImage from "/map.png";
+
+const bounds = [
+  [0, 0], // top-left corner
+  [2340, 1336], // bottom-right corner (adjust to your image's aspect ratio)
+];
+
 export default function Location() {
   return (
-    <div className="ml-8">
-      <h2 className="text-4xl text-[#247BA0] font-bold mt-12  mb-8">
-        Location
-      </h2>
+    <div className="ml-8 flex flex-col items-center justify-center">
+      <h2 className="text-4xl text-[#247BA0] font-bold mt-12 mb-8">Location</h2>
+      <div className="w-full max-w-xs h-[600px] rounded-lg overflow-hidden shadow-lg mb-8">
+        <MapContainer
+          crs={L.CRS.Simple}
+          bounds={bounds}
+          maxBounds={bounds}
+          maxBoundsViscosity={1.0}
+          style={{ height: "100%", width: "100%" }}
+          minZoom={-2}
+        >
+          <ImageOverlay url={mapImage} bounds={bounds} />
+          {/* Example marker: */}
+          <Marker position={[500, 500]}>
+            <Popup>Festival Main Stage</Popup>
+          </Marker>
+        </MapContainer>
+      </div>
     </div>
   );
 }
