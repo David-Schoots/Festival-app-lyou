@@ -2,6 +2,7 @@ import { MapContainer, ImageOverlay, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import mapImage from "/map.png";
+import React, { useState } from "react";
 
 const bounds = [
   [0, 0], // top-left corner
@@ -9,12 +10,45 @@ const bounds = [
 ];
 
 export default function Location() {
+  /* GEOLOCATION API */
+  const [userLocation, setUserLocation] = useState(null);
+
+  const getUserLocation = () => {
+    if (navigator.geolocation) {
+      // get the current users location
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          // save the geolocation coordinates in two variables
+          const { latitude, longitude } = position.coords;
+          // update the value of userlocation variable
+          setUserLocation({ latitude, longitude });
+        },
+        (error) => {
+          console.error("Error getting user location:", error);
+        }
+      );
+    }
+    // if geolocation is not supported by the users browser
+    else {
+      console.error("Geolocation is not supported by this browser.");
+    }
+  };
   return (
     <div className="ml-8 flex flex-col items-center justify-center mb-5">
       <h2 className="text-4xl text-[#247BA0] font-bold mt-12 mb-8">Location</h2>
+      <button onClick={getUserLocation}>Location</button>
+      {userLocation && (
+        <div>
+          <h2>User Location</h2>
+          <p>Latitude: {userLocation.latitude}</p>
+          <p>Longitude: {userLocation.longitude}</p>
+        </div>
+      )}
+
+      {/* LEAFLET */}
       <div className="w-full max-w-xs h-[600px] rounded-lg overflow-hidden shadow-lg mb-8">
         <MapContainer
-          crs={L.CRS.Simple}  
+          crs={L.CRS.Simple}
           bounds={bounds}
           maxBounds={bounds}
           maxBoundsViscosity={1.0}
