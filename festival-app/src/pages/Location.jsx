@@ -4,9 +4,73 @@ import "leaflet/dist/leaflet.css";
 import mapImage from "/map.png";
 import React, { useState } from "react";
 
+const entranceIcon = new L.Icon({
+  iconUrl: "/marker_entrance_exit.svg", // path to your SVG
+  iconSize: [70, 70], // size of the icon
+  iconAnchor: [20, 40], // point of the icon which will correspond to marker's location
+  popupAnchor: [0, 0], // point from which the popup should open relative to the iconAnchor
+  className: "",
+});
+
+const barIcon = new L.Icon({
+  iconUrl: "/marker_bar.svg", // path to your SVG
+  iconSize: [70, 70], // size of the icon
+  iconAnchor: [20, 40], // point of the icon which will correspond to marker's location
+  popupAnchor: [0, 0], // point from which the popup should open relative to the iconAnchor
+  className: "",
+});
+
+const firstAidIcon = new L.Icon({
+  iconUrl: "/marker_first_aid.svg", // path to your SVG
+  iconSize: [70, 70], // size of the icon
+  iconAnchor: [20, 40], // point of the icon which will correspond to marker's location
+  popupAnchor: [0, 0], // point from which the popup should open relative to the iconAnchor
+  className: "",
+});
+
+const foodIcon = new L.Icon({
+  iconUrl: "/marker_food.svg", // path to your SVG
+  iconSize: [70, 70], // size of the icon
+  iconAnchor: [20, 40], // point of the icon which will correspond to marker's location
+  popupAnchor: [0, 0], // point from which the popup should open relative to the iconAnchor
+  className: "",
+});
+
+const iceCreamIcon = new L.Icon({
+  iconUrl: "/marker_ice_cream.svg", // path to your SVG
+  iconSize: [70, 70], // size of the icon
+  iconAnchor: [20, 40], // point of the icon which will correspond to marker's location
+  popupAnchor: [0, 0], // point from which the popup should open relative to the iconAnchor
+  className: "",
+});
+
+const lockerIcon = new L.Icon({
+  iconUrl: "/marker_locker.svg", // path to your SVG
+  iconSize: [70, 70], // size of the icon
+  iconAnchor: [20, 40], // point of the icon which will correspond to marker's location
+  popupAnchor: [0, 0], // point from which the popup should open relative to the iconAnchor
+  className: "",
+});
+
+const merchIcon = new L.Icon({
+  iconUrl: "/marker_merchandise.svg", // path to your SVG
+  iconSize: [70, 70], // size of the icon
+  iconAnchor: [20, 40], // point of the icon which will correspond to marker's location
+  popupAnchor: [0, 0], // point from which the popup should open relative to the iconAnchor
+  className: "",
+});
+
+const toiletIcon = new L.Icon({
+  iconUrl: "/marker_toilet.svg", // path to your SVG
+  iconSize: [70, 70], // size of the icon
+  iconAnchor: [20, 40], // point of the icon which will correspond to marker's location
+  popupAnchor: [0, 0], // point from which the popup should open relative to the iconAnchor
+  className: "",
+});
+
 const bounds = [
   [0, 0], // top-left corner
-  [9747, 5651], // bottom-right corner (adjust to your image's aspect ratio)
+  [9747, 5651], // bottom-right corner
 ];
 
 export default function Location() {
@@ -40,8 +104,29 @@ export default function Location() {
             minZoom={-3}
           >
             <ImageOverlay url={mapImage} bounds={bounds} />
+            <Marker position={[120, 210]} icon={firstAidIcon}>
+              <Popup>EHBO</Popup>
+            </Marker>
+            <Marker position={[180, 400]} icon={toiletIcon}>
+              <Popup>WC</Popup>
+            </Marker>
+            <Marker position={[250, 600]} icon={barIcon}>
+              <Popup>Bar</Popup>
+            </Marker>
+            <Marker position={[300, 800]} icon={foodIcon}>
+              <Popup>Food</Popup>
+            </Marker>
+            <Marker position={[400, 1000]} icon={lockerIcon}>
+              <Popup>Lockers</Popup>
+            </Marker>
+            <Marker position={[500, 1200]} icon={iceCreamIcon}>
+              <Popup>Ice Cream</Popup>
+            </Marker>
             <Marker position={[7690, 2090]}>
               <Popup>Ponton</Popup>
+            </Marker>
+            <Marker position={[3000, 800]} icon={entranceIcon}>
+              <Popup>Entrance/Exit</Popup>
             </Marker>
             <Marker position={[2900, 3500]}>
               <Popup>The Club</Popup>
