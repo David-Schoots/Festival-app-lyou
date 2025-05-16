@@ -1,4 +1,10 @@
-import { MapContainer, ImageOverlay, Marker, Popup } from "react-leaflet";
+import {
+  MapContainer,
+  ImageOverlay,
+  Marker,
+  Popup,
+  Circle,
+} from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import mapImage from "/map.png";
@@ -75,9 +81,27 @@ const bounds = [
 
 export default function Location() {
   const [showUser, setShowUser] = useState(false);
+  const [userLocation, setUserLocation] = useState(null);
 
   // Simulated user location on the image (center)
   const userImageCoords = [1170, 668];
+
+  const getUserLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          setUserLocation({ latitude, longitude });
+          setShowUser(true);
+        },
+        (error) => {
+          console.error("Error getting user location:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
+  };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-[#eaf6fb] to-[#f7fafc] py-8">
@@ -90,10 +114,11 @@ export default function Location() {
         </p>
         <button
           className="mb-4 px-4 py-2 bg-[#247BA0] text-white rounded-lg shadow"
-          onClick={() => setShowUser((prev) => !prev)}
+          onClick={getUserLocation}
         >
-          {showUser ? "Verberg mijn locatie" : "Toon mijn locatie"}
+          Toon mijn locatie
         </button>
+
         <div className="w-full h-[500px] rounded-lg overflow-hidden shadow-lg mb-2 border border-gray-200">
           <MapContainer
             crs={L.CRS.Simple}
@@ -164,21 +189,35 @@ export default function Location() {
             <Marker position={[7900, 3890]} icon={firstAidIcon}>
               <Popup>EHBO</Popup>
             </Marker>
-
             <Marker position={[2900, 3500]}>
               <Popup>The Club</Popup>
             </Marker>
             <Marker position={[4500, 3080]}>
               <Popup>The Lake</Popup>
             </Marker>
-
             <Marker position={[7690, 2090]}>
               <Popup>Ponton</Popup>
             </Marker>
-            {showUser && (
-              <Marker position={userImageCoords}>
-                <Popup>Jij bent hier (gesimuleerd)</Popup>
-              </Marker>
+            {showUser && userLocation && (
+              <>
+                <Circle
+                  center={userImageCoords}
+                  radius={200} // adjust for your image scale
+                  pathOptions={{
+                    color: "#247BA0",
+                    fillColor: "#247BA0",
+                    fillOpacity: 0.3,
+                  }}
+                />
+                <Marker position={userImageCoords}>
+                  <Popup>
+                    Jij bent hier!
+                    <br />
+                    Latitude: {userLocation.latitude} <br />
+                    Longitude: {userLocation.longitude}
+                  </Popup>
+                </Marker>
+              </>
             )}
           </MapContainer>
         </div>
