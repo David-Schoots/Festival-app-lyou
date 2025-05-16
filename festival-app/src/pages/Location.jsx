@@ -104,6 +104,9 @@ export default function Location() {
             minZoom={-3}
           >
             <ImageOverlay url={mapImage} bounds={bounds} />
+            <Marker position={[3000, 800]} icon={entranceIcon}>
+              <Popup>Entrance/Exit</Popup>
+            </Marker>
             <Marker position={[7200, 1000]} icon={lockerIcon}>
               <Popup>Lockers</Popup>
             </Marker>
@@ -161,29 +164,16 @@ export default function Location() {
             <Marker position={[7900, 3890]} icon={firstAidIcon}>
               <Popup>EHBO</Popup>
             </Marker>
-            <Marker position={[180, 400]} icon={toiletIcon}>
-              <Popup>WC</Popup>
-            </Marker>
-            <Marker position={[250, 600]} icon={barIcon}>
-              <Popup>Bar</Popup>
-            </Marker>
-            <Marker position={[500, 1200]} icon={iceCreamIcon}>
-              <Popup>Ice Cream</Popup>
-            </Marker>
-            <Marker position={[7690, 2090]}>
-              <Popup>Ponton</Popup>
-            </Marker>
-            <Marker position={[3000, 800]} icon={entranceIcon}>
-              <Popup>Entrance/Exit</Popup>
-            </Marker>
+
             <Marker position={[2900, 3500]}>
               <Popup>The Club</Popup>
             </Marker>
             <Marker position={[4500, 3080]}>
               <Popup>The Lake</Popup>
             </Marker>
-            <Marker position={[900, 4700]}>
-              <Popup>The Hanggar</Popup>
+
+            <Marker position={[7690, 2090]}>
+              <Popup>Ponton</Popup>
             </Marker>
             {showUser && (
               <Marker position={userImageCoords}>
