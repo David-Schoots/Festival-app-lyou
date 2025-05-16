@@ -113,19 +113,52 @@ export default function Location() {
             <Marker position={[8050, 1090]} icon={merchIcon}>
               <Popup>Merch</Popup>
             </Marker>
+            <Marker position={[6530, 3300]} icon={merchIcon}>
+              <Popup>Merch</Popup>
+            </Marker>
+            <Marker position={[3200, 3600]} icon={merchIcon}>
+              <Popup>Merch</Popup>
+            </Marker>
             <Marker position={[8450, 1600]} icon={barIcon}>
+              <Popup>Bar</Popup>
+            </Marker>
+            <Marker position={[4400, 3440]} icon={barIcon}>
+              <Popup>Bar</Popup>
+            </Marker>
+            <Marker position={[2670, 4000]} icon={barIcon}>
+              <Popup>Bar</Popup>
+            </Marker>
+            <Marker position={[1740, 4050]} icon={barIcon}>
               <Popup>Bar</Popup>
             </Marker>
             <Marker position={[8900, 1300]} icon={toiletIcon}>
               <Popup>WC</Popup>
             </Marker>
+            <Marker position={[4900, 4100]} icon={toiletIcon}>
+              <Popup>WC</Popup>
+            </Marker>
+            <Marker position={[540, 4250]} icon={toiletIcon}>
+              <Popup>WC</Popup>
+            </Marker>
             <Marker position={[7100, 1900]} icon={iceCreamIcon}>
+              <Popup>Icecream</Popup>
+            </Marker>
+            <Marker position={[6000, 3350]} icon={iceCreamIcon}>
+              <Popup>Icecream</Popup>
+            </Marker>
+            <Marker position={[3800, 3800]} icon={iceCreamIcon}>
+              <Popup>Icecream</Popup>
+            </Marker>
+            <Marker position={[1440, 4750]} icon={iceCreamIcon}>
               <Popup>Icecream</Popup>
             </Marker>
             <Marker position={[8400, 2600]} icon={foodIcon}>
               <Popup>Food</Popup>
             </Marker>
-            <Marker position={[120, 210]} icon={firstAidIcon}>
+            <Marker position={[6200, 3200]} icon={foodIcon}>
+              <Popup>Food</Popup>
+            </Marker>
+            <Marker position={[7900, 3890]} icon={firstAidIcon}>
               <Popup>EHBO</Popup>
             </Marker>
             <Marker position={[180, 400]} icon={toiletIcon}>
@@ -136,7 +169,8 @@ export default function Location() {
             </Marker>
             <Marker position={[500, 1200]} icon={iceCreamIcon}>
               <Popup>Ice Cream</Popup>
-              <Marker position={[7690, 2090]}></Marker>
+            </Marker>
+            <Marker position={[7690, 2090]}>
               <Popup>Ponton</Popup>
             </Marker>
             <Marker position={[3000, 800]} icon={entranceIcon}>
