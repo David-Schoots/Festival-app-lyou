@@ -6,70 +6,60 @@ import React, { useState } from "react";
 
 const bounds = [
   [0, 0], // top-left corner
-  [2340, 1336], // bottom-right corner (adjust to your image's aspect ratio)
+  [9747, 5651], // bottom-right corner (adjust to your image's aspect ratio)
 ];
 
 export default function Location() {
-  /* GEOLOCATION API */
-  const [userLocation, setUserLocation] = useState(null);
+  const [showUser, setShowUser] = useState(false);
 
-  const getUserLocation = () => {
-    if (navigator.geolocation) {
-      // get the current users location
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          // save the geolocation coordinates in two variables
-          const { latitude, longitude } = position.coords;
-          // update the value of userlocation variable
-          setUserLocation({ latitude, longitude });
-        },
-        (error) => {
-          console.error("Error getting user location:", error);
-        }
-      );
-    }
-    // if geolocation is not supported by the users browser
-    else {
-      console.error("Geolocation is not supported by this browser.");
-    }
-  };
+  // Simulated user location on the image (center)
+  const userImageCoords = [1170, 668];
+
   return (
-    <div className="ml-8 flex flex-col items-center justify-center mb-5">
-      <h2 className="text-4xl text-[#247BA0] font-bold mt-12 mb-8">Location</h2>
-      <button onClick={getUserLocation}>Location</button>
-      {userLocation && (
-        <div>
-          <h2>User Location</h2>
-          <p>Latitude: {userLocation.latitude}</p>
-          <p>Longitude: {userLocation.longitude}</p>
-        </div>
-      )}
-
-      {/* LEAFLET */}
-      <div className="w-full max-w-xs h-[600px] rounded-lg overflow-hidden shadow-lg mb-8">
-        <MapContainer
-          crs={L.CRS.Simple}
-          bounds={bounds}
-          maxBounds={bounds}
-          maxBoundsViscosity={1.0}
-          style={{ height: "100%", width: "100%" }}
-          minZoom={-2}
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-[#eaf6fb] to-[#f7fafc] py-8">
+      <div className="bg-white rounded-2xl shadow-2xl p-6 w-full max-w-md flex flex-col items-center">
+        <h2 className="text-3xl text-[#247BA0] font-bold mb-2 tracking-tight">
+          Festival Locatie
+        </h2>
+        <p className="text-gray-600 mb-4 text-center">
+          Bekijk de plattegrond en vind de verschillende stages!
+        </p>
+        <button
+          className="mb-4 px-4 py-2 bg-[#247BA0] text-white rounded-lg shadow"
+          onClick={() => setShowUser((prev) => !prev)}
         >
-          <ImageOverlay url={mapImage} bounds={bounds} />
-          {/* Example marker: */}
-          <Marker position={[1850, 480]}>
-            <Popup>Ponton</Popup>
-          </Marker>
-          <Marker position={[1060, 710]}>
-            <Popup>The Lake</Popup>
-          </Marker>
-          <Marker position={[700, 800]}>
-            <Popup>The Club</Popup>
-          </Marker>
-          <Marker position={[200, 1100]}>
-            <Popup>The Hanggar</Popup>
-          </Marker>
-        </MapContainer>
+          {showUser ? "Verberg mijn locatie" : "Toon mijn locatie"}
+        </button>
+        <div className="w-full h-[500px] rounded-lg overflow-hidden shadow-lg mb-2 border border-gray-200">
+          <MapContainer
+            crs={L.CRS.Simple}
+            bounds={bounds}
+            maxBounds={bounds}
+            maxBoundsViscosity={1.0}
+            style={{ height: "100%", width: "100%" }}
+            minZoom={-3}
+          >
+            <ImageOverlay url={mapImage} bounds={bounds} />
+            <Marker position={[7690, 2090]}>
+              <Popup>Ponton</Popup>
+            </Marker>
+            <Marker position={[2900, 3500]}>
+              <Popup>The Club</Popup>
+            </Marker>
+            <Marker position={[4500, 3080]}>
+              <Popup>The Lake</Popup>
+            </Marker>
+            <Marker position={[900, 4700]}>
+              <Popup>The Hanggar</Popup>
+            </Marker>
+            {showUser && (
+              <Marker position={userImageCoords}>
+                <Popup>Jij bent hier (gesimuleerd)</Popup>
+              </Marker>
+            )}
+          </MapContainer>
+        </div>
+        <span className="text-xs text-gray-400">Plattegrond © Festival</span>
       </div>
     </div>
   );
