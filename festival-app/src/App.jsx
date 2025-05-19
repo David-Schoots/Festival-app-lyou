@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import Info from "./pages/Info";
 import Location from "./pages/Location";
 import Music from "./pages/Music";
+import TimeTable from "./pages/TimeTable";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/pages/Info" element={<Info />} />
         <Route path="/pages/Location" element={<Location />} />
         <Route path="/pages/Music" element={<Music />} />
+        <Route path="/pages/timetable" element={<TimeTable />} />{" "}
       </Routes>
       <Footer />
     </Router>

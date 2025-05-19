@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Link, useLocation } from "react-router-dom";
 import { AiOutlineHome } from "react-icons/ai";
 import { GoLocation } from "react-icons/go";
 import { FiInfo } from "react-icons/fi";
+import { MdAccessTime } from "react-icons/md";
+
 import { IoMdMusicalNote } from "react-icons/io";
 
 export default function Footer() {
@@ -46,6 +48,19 @@ export default function Footer() {
       >
         <IoMdMusicalNote className="text-3xl" />
         {isActive("/pages/music") && (
+          <div className="w-6 h-1 bg-red-600 mt-1 rounded-full"></div>
+        )}
+      </Link>
+
+      {/* Time Icon */}
+      <Link
+        to="/pages/timetable"
+        className={`flex flex-col items-center ${
+          isActive("/pages/timeTable") ? "text-red-500" : "text-gray-500"
+        }`}
+      >
+        <MdAccessTime className="text-3xl" />
+        {isActive("/pages/timetable") && (
           <div className="w-6 h-1 bg-red-600 mt-1 rounded-full"></div>
         )}
       </Link>
