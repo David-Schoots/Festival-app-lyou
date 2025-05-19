@@ -2,7 +2,7 @@ export default function Info() {
   return (
     <div
       id="faq"
-      className="w-full  flex flex-col justify-center items-center "
+      className="w-full  flex flex-col justify-center items-center bg-gradient-to-b from-[#eaf6fb] to-[#f7fafc] "
     >
       <div className="max-w-screen-xl w-full px-4">
         <div className="text-center mb-12">
