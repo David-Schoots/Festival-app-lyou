@@ -8,7 +8,7 @@ import {
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import mapImage from "/map.png";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const entranceIcon = new L.Icon({
   iconUrl: "/marker_entrance_exit.svg", // path to your SVG
@@ -80,28 +80,33 @@ const bounds = [
 ];
 
 export default function Location() {
-  const [showUser, setShowUser] = useState(false);
   const [userLocation, setUserLocation] = useState(null);
+  const watchIdRef = useRef(null);
 
   // Simulated user location on the image (center)
   const userImageCoords = [1170, 668];
 
-  const getUserLocation = () => {
+  useEffect(() => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
+      watchIdRef.current = navigator.geolocation.watchPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
           setUserLocation({ latitude, longitude });
-          setShowUser(true);
         },
         (error) => {
           console.error("Error getting user location:", error);
-        }
+        },
+        { enableHighAccuracy: true }
       );
     } else {
       console.error("Geolocation is not supported by this browser.");
     }
-  };
+    return () => {
+      if (watchIdRef.current !== null) {
+        navigator.geolocation.clearWatch(watchIdRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-[#eaf6fb] to-[#f7fafc] py-8">
@@ -112,12 +117,7 @@ export default function Location() {
         <p className="text-gray-600 mb-4 text-center">
           Bekijk de plattegrond en vind de verschillende stages!
         </p>
-        <button
-          className="mb-4 px-4 py-2 bg-[#247BA0] text-white rounded-lg shadow"
-          onClick={getUserLocation}
-        >
-          Toon mijn locatie
-        </button>
+
 
         <div className="w-full h-[500px] rounded-lg overflow-hidden shadow-lg mb-2 border border-gray-200">
           <MapContainer
@@ -198,11 +198,11 @@ export default function Location() {
             <Marker position={[7690, 2090]}>
               <Popup>Ponton</Popup>
             </Marker>
-            {showUser && userLocation && (
+            {userLocation && (
               <>
                 <Circle
                   center={userImageCoords}
-                  radius={200} // adjust for your image scale
+                  radius={200}
                   pathOptions={{
                     color: "#247BA0",
                     fillColor: "#247BA0",
