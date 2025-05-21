@@ -109,15 +109,14 @@ export default function Location() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-[#eaf6fb] to-[#f7fafc] py-8">
-      <div className="bg-white rounded-2xl shadow-2xl p-6 w-full max-w-md flex flex-col items-center">
-        <h2 className="text-3xl text-[#247BA0] font-bold mb-2 tracking-tight">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b dark:bg-none from-[#eaf6fb] to-[#f7fafc] dark:bg-black py-8">
+      <div className="bg-white rounded-2xl shadow-2xl p-6 w-full max-w-md flex flex-col items-center dark:bg-neutral-900 ">
+        <h2 className="text-3xl text-[#247BA0] font-bold mb-2 tracking-tight dark:text-white">
           Festival Locatie
         </h2>
-        <p className="text-gray-600 mb-4 text-center">
+        <p className="text-gray-600 mb-4 text-center dark:text-white">
           Bekijk de plattegrond en vind de verschillende stages!
         </p>
-
 
         <div className="w-full h-[500px] rounded-lg overflow-hidden shadow-lg mb-2 border border-gray-200">
           <MapContainer
@@ -221,7 +220,9 @@ export default function Location() {
             )}
           </MapContainer>
         </div>
-        <span className="text-xs text-gray-400">Plattegrond © Festival</span>
+        <span className="text-xs text-gray-400 dark:text-white">
+          Plattegrond © Festival
+        </span>
       </div>
     </div>
   );

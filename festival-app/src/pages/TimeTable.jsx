@@ -152,7 +152,7 @@ export default function TimeTable() {
   const events = eventsData[selectedDay];
 
   return (
-    <div className="overflow-x-auto w-full">
+    <div className="overflow-x-auto w-full ">
       <div className="flex justify-center gap-2 mb-4">
         <button
           onClick={() => setSelectedDay("Saturday")}
@@ -178,10 +178,15 @@ export default function TimeTable() {
       <table className="min-w-full border-collapse text-xs md:text-sm bg-white rounded-xl shadow">
         <thead>
           <tr>
-            <th className="bg-gray-200 px-2 py-2 text-left">Time</th>
+            <th className="bg-gray-200 px-2 py-2 text-left dark:bg-gray-800">
+              Time
+            </th>
             {/* naam van de podiumss */}
             {stages.map((stage) => (
-              <th key={stage} className="bg-gray-200 px-2 py-2 text-center">
+              <th
+                key={stage}
+                className="bg-gray-200 px-2 py-2 text-center dark:bg-gray-800"
+              >
                 {stage}
               </th>
             ))}
@@ -191,7 +196,9 @@ export default function TimeTable() {
           {/* Tijd  */}
           {times.map((time) => (
             <tr key={time}>
-              <td className="bg-gray-100 px-2 py-1 font-semibold">{time}</td>
+              <td className="bg-gray-100 px-2 py-1 font-semibold dark:text-white dark:bg-gray-800" >
+                {time}
+              </td>
               {stages.map((stage) => {
                 const eventName = getEventAtTime(events, stage, time);
                 return (
@@ -199,7 +206,9 @@ export default function TimeTable() {
                     /* naam van de artiest */
                     key={stage}
                     className={`px-2 py-1 text-center ${
-                      eventName ? "bg-red-400 text-white font-bold rounded" : ""
+                      eventName
+                        ? "bg-blue-400 text-white font-bold rounded dark:text-white dark:bg-blue-400"
+                        : ""
                     }`}
                   >
                     {eventName}
