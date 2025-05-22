@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { FaMoon } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
+import { useLanguage } from "../App"; // adjust path if needed
 
 function Header() {
-  const [theme, setTheme] = useState("light"); // Default theme
-  const [lang, setLang] = useState("en");
+  const [theme, setTheme] = useState("light");
+  const { lang, toggleLang } = useLanguage(); // Use context!
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  };
-
-  const toggleLang = () => {
-    setLang((prevLang) => (prevLang === "eng" ? "nl" : "eng"));
   };
 
   useEffect(() => {
@@ -37,7 +34,7 @@ function Header() {
         <FaMoon className="text-2xl" onClick={toggleTheme} />
         <div className="flex items-center space-x-1">
           <TbWorld className="text-2xl" onClick={toggleLang} />
-          <p className="text-lg">{lang === "eng" ? "Eng" : "NL"}</p>
+          <p className="text-lg">{lang === "en" ? "EN" : "NL"}</p>
         </div>
       </div>
     </header>

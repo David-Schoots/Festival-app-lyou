@@ -1,4 +1,8 @@
+import { useLanguage } from "../App";
+import t from "../pages/translation/InfoTranslation";
 export default function Info() {
+  const { lang } = useLanguage();
+
   return (
     <div
       id="faq"
@@ -7,14 +11,15 @@ export default function Info() {
       <div className="max-w-screen-xl w-full px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl text-[#247BA0] font-bold mt-12 mb-8 dark:text-white">
-            FAQ
+            {t.faq[lang]}
           </h2>
         </div>
         <div className="grid divide-y max-w-3xl mx-auto">
+          {/* General & Contact */}
           <div className="py-5">
             <details className="group">
               <summary className="flex justify-between items-center font-medium text-gray-800 cursor-pointer dark:text-white">
-                <span>Algemeen & contact</span>
+                <span>{t.general[lang]}</span>
                 <span className="transition group-open:rotate-180">
                   <svg
                     fill="none"
@@ -30,17 +35,15 @@ export default function Info() {
                 </span>
               </summary>
               <p className="text-gray-600 mt-3 group-open:animate-fadeIn dark:text-white">
-                Locatie: Strijkviertel, Utrecht <br />
-                Navigatieadres: Strijkviertelweg, Utrecht,
-                <br />
-                Zaterdag 6 september 2025 - 12:00 tot 23:00 uur
+                {t.generalText[lang]}
               </p>
             </details>
           </div>
+          {/* Accessibility */}
           <div className="py-5">
             <details className="group">
               <summary className="flex justify-between items-center font-medium text-gray-800 cursor-pointer dark:text-white">
-                <span>Bereikbaarheid</span>
+                <span>{t.access[lang]}</span>
                 <span className="transition group-open:rotate-180">
                   <svg
                     fill="none"
@@ -56,59 +59,42 @@ export default function Info() {
                 </span>
               </summary>
               <p className="text-gray-600 mt-3 font-bold underline group-open:animate-fadeIn dark:text-white">
-                Fiets
+                {t.bike[lang]}
               </p>
               <p className="text-gray-600 mt-3 group-open:animate-fadeIn dark:text-white">
-                Er is een grote gratis fietsenstalling aanwezig waar je jouw
-                fiets de gehele dag kunt stallen.
+                {t.bikeText[lang]}
               </p>
               <p className="text-gray-600 mt-3 underline font-bold group-open:animate-fadeIn dark:text-white">
-                Auto
+                {t.car[lang]}
               </p>
               <p className="text-gray-600 mt-3 group-open:animate-fadeIn dark:text-white">
-                Je kunt een parkingticket aanschaffen. Parkeren kan op P+R
-                Papendorp, volg hiervoor de borden 'P online ticket'. Heb je
-                geen ticket van te voren gekocht? Dan kun je bij de
-                parkeerwachter op locatie een parkeerticket aanschaffen (PIN
-                ONLY). Let wel op: VOL=VOL
+                {t.carText[lang]}
               </p>
               <p className="text-gray-600 mt-3 font-bold underline group-open:animate-fadeIn dark:text-white">
-                OV
+                {t.ov[lang]}
               </p>
               <p className="text-gray-600 mt-3 group-open:animate-fadeIn dark:text-white">
-                Kom je met het openbaar vervoer naar Lief? Plan dan je trip via{" "}
-                <a
-                  href="https://9292.nl/"
-                  className="text-blue-500 dark:text-blue-300"
-                >
-                  9292.nl
-                </a>
+                {t.ovText[lang]}
               </p>
               <p className="text-gray-600 mt-3 font-bold underline group-open:animate-fadeIn dark:text-white">
-                Shuttlebus
+                {t.shuttle[lang]}
               </p>
               <p className="text-gray-600 mt-3 group-open:animate-fadeIn dark:text-white">
-                Vanaf Utrecht Centraal kun je onze gratis shuttlebus richting
-                het festivalterrein pakken. Je vindt deze bus op het centraal
-                station aan de Mineurslaan. Volg de witte bordjes met zwarte
-                pijlen én ' ❤️U Festival'. De bus rijdt tussen 12:00 uur & 19:00
-                uur richting het festival en vanaf 21:00 uur kun je weer
-                instappen om richting het station te gaan.
+                {t.shuttleText[lang]}
               </p>
               <p className="text-gray-600 mt-3 font-bold underline group-open:animate-fadeIn dark:text-white">
-                Taxi + Kiss & Ride
+                {t.taxi[lang]}
               </p>
               <p className="text-gray-600 mt-3 group-open:animate-fadeIn dark:text-white">
-                Navigeer naar Strijkviertel, De Meern (Utrecht). Volg de borden
-                "Kiss & Ride ❤️U Festival", zodra je in de buurt bent van het
-                festivalterrein.
+                {t.taxiText[lang]}
               </p>
             </details>
           </div>
+          {/* Lockers */}
           <div className="py-5">
             <details className="group">
               <summary className="flex justify-between items-center font-medium text-gray-800 cursor-pointer dark:text-white">
-                <span>Lockers</span>
+                <span>{t.lockers[lang]}</span>
                 <span className="transition group-open:rotate-180">
                   <svg
                     fill="none"
@@ -124,23 +110,21 @@ export default function Info() {
                 </span>
               </summary>
               <p className="text-gray-600 mt-3 group-open:animate-fadeIn dark:text-white">
-                Op het festivalterrein zijn kluisjes aanwezig waar je je spullen
-                veilig kunt opbergen! Hier passen 3 à 4 jassen in!
+                {t.lockersText1[lang]}
               </p>
               <p className="text-gray-600 mt-3 group-open:animate-fadeIn dark:text-white">
-                Goed om te weten: je kunt je kluisje gedurende de hele dag
-                openen en sluiten zo vaak je wilt.
+                {t.lockersText2[lang]}
               </p>
               <p className="text-gray-600 mt-3 group-open:animate-fadeIn dark:text-white">
-                Het is <span className="font-bold underline">niet</span>{" "}
-                mogelijk om online een kluisje te reserveren. 
+                {t.lockersText3[lang]}
               </p>
             </details>
           </div>
+          {/* Medication */}
           <div className="py-5">
             <details className="group">
               <summary className="flex justify-between items-center font-medium text-gray-800 cursor-pointer dark:text-white">
-                <span> Ik gebruik medicatie. Wat nu?</span>
+                <span>{t.medicine[lang]}</span>
                 <span className="transition group-open:rotate-180">
                   <svg
                     fill="none"
@@ -156,22 +140,18 @@ export default function Info() {
                 </span>
               </summary>
               <p className="text-gray-600 mt-3 group-open:animate-fadeIn dark:text-white">
-                Het is toegestaan om medicijnen mee te nemen in een dosis die je
-                maximaal nodig hebt op 1 dag. Een
-                doktersverklaring/medicatiepaspoort is noodzakelijk.{" "}
+                {t.medicineText1[lang]}
               </p>
               <p className="text-gray-600 mt-3 group-open:animate-fadeIn dark:text-white">
-                De beveiliging zal jouw documentatie beoordelen en de medicijnen
-                controleren. Het kan zijn dat de EHBO jouw medicijnen
-                (bijvoorbeeld als deze gevaarlijk zijn i.c.m. alcohol) in
-                bewaring neemt en je deze enkel kan innemen bij de EHBO. 
+                {t.medicineText2[lang]}
               </p>
             </details>
           </div>
+          {/* Leaving the festival grounds */}
           <div className="py-5">
             <details className="group">
               <summary className="flex justify-between items-center font-medium text-gray-800 cursor-pointer dark:text-white">
-                <span> Mag ik het festivalterrein tussentijds verlaten?</span>
+                <span>{t.leaveTitle[lang]}</span>
                 <span className="transition group-open:rotate-180">
                   <svg
                     fill="none"
@@ -187,19 +167,13 @@ export default function Info() {
                 </span>
               </summary>
               <p className="text-gray-600 mt-3 group-open:animate-fadeIn dark:text-white">
-                Nee, helaas is dat niet mogelijk. Om de veiligheid van alle
-                bezoekers te kunnen waarborgen, kunnen we het niet toestaan dat
-                het festivalterrein tussentijds verlaten wordt.
+                {t.leaveText1[lang]}
               </p>
               <p className="text-gray-600 mt-3 group-open:animate-fadeIn dark:text-white">
-                Wij hebben namelijk geen zicht op hetgeen wat een bezoeker
-                buiten het festivalterrein doet en ik welke staat deze het
-                terrein weer betreedt. Hier kunnen dan ook geen uitzonderingen
-                voor gemaakt worden.
+                {t.leaveText2[lang]}
               </p>
               <p className="text-gray-600 mt-3 group-open:animate-fadeIn dark:text-white">
-                Wij hebben genoeg loungeplekken, foodstands & barren om het een
-                hele dag uit te kunnen houden.
+                {t.leaveText3[lang]}
               </p>
             </details>
           </div>

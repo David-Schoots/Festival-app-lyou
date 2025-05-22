@@ -152,7 +152,7 @@ export default function TimeTable() {
   const events = eventsData[selectedDay];
 
   return (
-    <div className="overflow-x-auto w-full ">
+    <div className="overflow-x-auto w-full dark:bg-black">
       <div className="flex justify-center gap-2 mb-4">
         <button
           onClick={() => setSelectedDay("Saturday")}
@@ -196,7 +196,7 @@ export default function TimeTable() {
           {/* Tijd  */}
           {times.map((time) => (
             <tr key={time}>
-              <td className="bg-gray-100 px-2 py-1 font-semibold dark:text-white dark:bg-gray-800" >
+              <td className="bg-gray-100 px-2 py-1 font-semibold dark:text-white dark:bg-gray-800">
                 {time}
               </td>
               {stages.map((stage) => {
