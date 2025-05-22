@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useLanguage } from "../App";
 
+import t from "../pages/translation/TimeTableTranslation";
 const times = [
   "10:00",
   "10:15",
@@ -148,6 +150,8 @@ function getEventAtTime(events, stage, time) {
 }
 
 export default function TimeTable() {
+  const { lang } = useLanguage();
+
   const [selectedDay, setSelectedDay] = useState("Saturday");
   const events = eventsData[selectedDay];
 
@@ -162,7 +166,7 @@ export default function TimeTable() {
               : "bg-gray-200 text-gray-700"
           }`}
         >
-          Zaterdag
+          {t.zday[lang]}
         </button>
         <button
           onClick={() => setSelectedDay("Sunday")}
@@ -172,7 +176,7 @@ export default function TimeTable() {
               : "bg-gray-200 text-gray-700"
           }`}
         >
-          Zondag
+          {t.sday[lang]}
         </button>
       </div>
       <table className="min-w-full border-collapse text-xs md:text-sm bg-white rounded-xl shadow">
