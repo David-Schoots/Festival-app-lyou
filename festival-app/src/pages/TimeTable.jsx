@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useLanguage } from "../App";
+import { motion } from "framer-motion";
 
 import t from "../pages/translation/TimeTableTranslation";
 const times = [
@@ -151,78 +152,104 @@ function getEventAtTime(events, stage, time) {
 
 export default function TimeTable() {
   const { lang } = useLanguage();
+  const [selectedArtist, setSelectedArtist] = useState(null);
 
   const [selectedDay, setSelectedDay] = useState("Saturday");
   const events = eventsData[selectedDay];
 
   return (
-    <div className="overflow-x-auto w-full dark:bg-black">
-      <div className="flex justify-center gap-2 mb-4">
-        <button
-          onClick={() => setSelectedDay("Saturday")}
-          className={`px-4 py-2 rounded font-bold ${
-            selectedDay === "Saturday"
-              ? "bg-blue-500 text-white"
-              : "bg-gray-200 text-gray-700"
-          }`}
-        >
-          {t.zday[lang]}
-        </button>
-        <button
-          onClick={() => setSelectedDay("Sunday")}
-          className={`px-4 py-2 rounded font-bold ${
-            selectedDay === "Sunday"
-              ? "bg-blue-500 text-white"
-              : "bg-gray-200 text-gray-700"
-          }`}
-        >
-          {t.sday[lang]}
-        </button>
-      </div>
-      <table className="min-w-full border-collapse text-xs md:text-sm bg-white rounded-xl shadow">
-        <thead>
-          <tr>
-            <th className="bg-gray-200 px-2 py-2 text-left dark:bg-gray-800">
-              Time
-            </th>
-            {/* naam van de podiumss */}
-            {stages.map((stage) => (
-              <th
-                key={stage}
-                className="bg-gray-200 px-2 py-2 text-center dark:bg-gray-800"
-              >
-                {stage}
+    <motion.div
+      initial={{ x: -200, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{
+        type: "tween",
+        ease: "easeIn",
+        duration: 1,
+      }}
+    >
+      <div className="overflow-x-auto w-full dark:bg-black">
+        <div className="flex justify-center gap-2 mb-4">
+          <button
+            onClick={() => setSelectedDay("Saturday")}
+            className={`px-4 py-2 rounded font-bold ${
+              selectedDay === "Saturday"
+                ? "bg-blue-500 text-white"
+                : "bg-gray-200 text-gray-700"
+            }`}
+          >
+            {t.zday[lang]}
+          </button>
+          <button
+            onClick={() => setSelectedDay("Sunday")}
+            className={`px-4 py-2 rounded font-bold ${
+              selectedDay === "Sunday"
+                ? "bg-blue-500 text-white"
+                : "bg-gray-200 text-gray-700"
+            }`}
+          >
+            {t.sday[lang]}
+          </button>
+        </div>
+        <table className="min-w-full border-collapse text-xs md:text-sm bg-white rounded-xl shadow">
+          <thead>
+            <tr>
+              <th className="bg-gray-200 px-2 py-2 text-left dark:bg-gray-800">
+                Time
               </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {/* Tijd  */}
-          {times.map((time) => (
-            <tr key={time}>
-              <td className="bg-gray-100 px-2 py-1 font-semibold dark:text-white dark:bg-gray-800">
-                {time}
-              </td>
-              {stages.map((stage) => {
-                const eventName = getEventAtTime(events, stage, time);
-                return (
-                  <td
-                    /* naam van de artiest */
-                    key={stage}
-                    className={`px-2 py-1 text-center ${
-                      eventName
-                        ? "bg-blue-400 text-white font-bold rounded dark:text-white dark:bg-blue-400"
-                        : ""
-                    }`}
-                  >
-                    {eventName}
-                  </td>
-                );
-              })}
+              {/* naam van de podiumss */}
+              {stages.map((stage) => (
+                <th
+                  key={stage}
+                  className="bg-gray-200 px-2 py-2 text-center dark:bg-gray-800"
+                >
+                  {stage}
+                </th>
+              ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {/* Tijd  */}
+            {times.map((time) => (
+              <tr key={time}>
+                <td className="bg-gray-100 px-2 py-1 font-semibold dark:text-white dark:bg-gray-800">
+                  {time}
+                </td>
+                {stages.map((stage) => {
+                  const eventName = getEventAtTime(events, stage, time);
+                  return (
+                    <td
+                      key={stage}
+                      onClick={() => eventName && setSelectedArtist(eventName)}
+                      className={`px-2 py-1 text-center cursor-pointer ${
+                        eventName
+                          ? "bg-blue-400 text-white font-bold rounded dark:text-white dark:bg-blue-400"
+                          : ""
+                      }`}
+                    >
+                      {eventName}
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+          {selectedArtist && (
+            <div className="fixed inset-0 flex items-center justify-center bg-white/50 bg-opacity-60 z-50">
+              <div className="bg-white dark:bg-neutral-900 rounded-xl p-8 shadow-xl max-w-xs w-full relative text-center">
+                <button
+                  className="absolute top-2 right-4 text-2xl text-gray-700 dark:text-white"
+                  onClick={() => setSelectedArtist(null)}
+                >
+                  &times;
+                </button>
+                <h2 className="text-2xl font-bold text-[#247BA0] dark:text-white mb-2">
+                  {selectedArtist}
+                </h2>
+              </div>
+            </div>
+          )}
+        </table>
+      </div>
+    </motion.div>
   );
 }
