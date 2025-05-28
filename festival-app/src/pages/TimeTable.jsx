@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useLanguage } from "../App";
 import { motion } from "framer-motion";
-
+import artists from "./ArtistsData";
 import t from "../pages/translation/TimeTableTranslation";
 const times = [
   "10:00",
@@ -219,7 +219,19 @@ export default function TimeTable() {
                   return (
                     <td
                       key={stage}
-                      onClick={() => eventName && setSelectedArtist(eventName)}
+                      onClick={() => {
+                        if (eventName) {
+                          const artistObj = artists.find(
+                            (a) =>
+                              a.name.nl === eventName || a.name.en === eventName
+                          );
+                          setSelectedArtist(
+                            artistObj || {
+                              name: { nl: eventName, en: eventName },
+                            }
+                          );
+                        }
+                      }}
                       className={`px-2 py-1 text-center cursor-pointer ${
                         eventName
                           ? "bg-blue-400 text-white font-bold rounded dark:text-white dark:bg-blue-400"
@@ -234,7 +246,7 @@ export default function TimeTable() {
             ))}
           </tbody>
           {selectedArtist && (
-            <div className="fixed inset-0 flex items-center justify-center bg-white/50 bg-opacity-60 z-50">
+            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50">
               <div className="bg-white dark:bg-neutral-900 rounded-xl p-8 shadow-xl max-w-xs w-full relative text-center">
                 <button
                   className="absolute top-2 right-4 text-2xl text-gray-700 dark:text-white"
@@ -243,8 +255,36 @@ export default function TimeTable() {
                   &times;
                 </button>
                 <h2 className="text-2xl font-bold text-[#247BA0] dark:text-white mb-2">
-                  {selectedArtist}
+                  {selectedArtist.name
+                    ? selectedArtist.name[lang]
+                    : selectedArtist}
                 </h2>
+                {selectedArtist.image && (
+                  <img
+                    src={selectedArtist.image}
+                    alt={selectedArtist.name[lang]}
+                    className="w-32 h-32 object-cover rounded-full mx-auto mb-4"
+                  />
+                )}
+                {selectedArtist.description && (
+                  <p className="text-gray-700 dark:text-white mb-4">
+                    {selectedArtist.description[lang]}
+                  </p>
+                )}
+                {selectedArtist.youtube && (
+                  <div className="w-full flex justify-center">
+                    <iframe
+                      className="rounded-lg shadow"
+                      width="320"
+                      height="180"
+                      src={selectedArtist.youtube}
+                      title={`YouTube video player for ${selectedArtist.name[lang]}`}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                )}
               </div>
             </div>
           )}

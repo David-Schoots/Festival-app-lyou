@@ -1,4 +1,4 @@
-import artists from "./artistsData";
+import artists from "./ArtistsData";
 import { useLanguage } from "../App";
 import { motion } from "framer-motion";
 
