@@ -40,11 +40,10 @@ export default function Home() {
   const refreshNews = () => {
     setLoading(true);
     setTimeout(() => {
-      // Hier kun je fetch gebruiken voor echte data
-      setNews([
-        ...initialNews,
+      setNews((prev) => [
+        ...prev,
         {
-          id: 4,
+          id: prev.length + 1,
           title: "Weerbericht: Zonnig!",
           content:
             "Het belooft een zonnige festivaldag te worden. Vergeet je zonnebrand niet!",
